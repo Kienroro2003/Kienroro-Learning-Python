@@ -1,0 +1,2 @@
+The phone number begins with an optional area code, so the area code group is followed with a question mark. Since the area code can be just three digits (that is, \d{3}) or three digits within parentheses (that is, \(\d{3}\)), you should have a pipe joining those parts. You can add the regex comment # Area code to this part of the multiline string to help you remember what (\d{3}|\(\d{3}\))? is supposed to match
+Please, translate to Vietnamese

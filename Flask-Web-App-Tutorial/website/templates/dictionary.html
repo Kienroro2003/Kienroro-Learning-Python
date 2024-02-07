@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block title %}My dictionary{% endblock %}
+{% block content %}
+    <div class="row justify-content-between">
+    <h1>My Dictionary</h1>
+    <button class="btn btn-primary">
+        <a class="text-light" href="./add"><i class="bi bi-plus-square"></i> Add</a>
+    </button>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Word</th>
+            <th scope="col">Meaning</th>
+            <th scope="col">Pronoun</th>
+            <th scope="col">Type</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for word in user.notes %}
+            {% if word.isUsed %}
+                <tr>
+                    <th scope="row">{{ word.id }}</th>
+                    <td>{{ word.word }}</td>
+                    <td>{{ word.meaning }}</td>
+                    <td>{{ word.pronoun }}</td>
+                    <td>{{ word.type }}</td>
+                    <td>
+                        <a class="btn btn-primary" href="/infor-word/{{ word.id }}">Info</a>
+                        <a class="btn btn-primary" href="/update/{{ word.id }}">Update</a>
+                        <button type="button" class="btn btn-danger" onclick="remove({{ word.id }}) ">Remove
+                        </button>
+                    </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
